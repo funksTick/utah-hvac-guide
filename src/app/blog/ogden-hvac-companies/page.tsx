@@ -269,7 +269,7 @@ export default function OgdenHVACCompaniesPage() {
               </li>
               <li>
                 <strong className="text-white">Pushes oversized equipment</strong>
-                <p className="text-white/50 mt-1">"Bigger is better" is false — properly sized > oversized</p>
+                <p className="text-white/50 mt-1">"Bigger is better" is false — properly sized &gt; oversized</p>
               </li>
             </ul>
           </div>
