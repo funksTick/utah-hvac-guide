@@ -11,7 +11,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    // Build Palmetto payload
     const palmettoPayload = {
       firstName,
       lastName,
@@ -23,8 +22,7 @@ export async function POST(req: NextRequest) {
         state: 'Utah',
         zip: zip || '',
       },
-      palmettoId: process.env.PALMETTO_ID || '123',
-      // Pass additional context as notes via any available field
+      palmettoId: `hvacGuide_${phone}`,
       notes: [serviceType, urgency, notes].filter(Boolean).join(' | '),
     };
 
