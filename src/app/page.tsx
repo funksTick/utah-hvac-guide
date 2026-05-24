@@ -16,7 +16,7 @@ const stats = [
   { value: '4.9★', label: 'Average Rating' },
   { value: '$0', label: 'Consultation Fee' },
 ];
-
+//
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#0a0f1e] text-white font-sans">
