@@ -39,7 +39,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'tooele',
     'summit',
     'wasatch',
-    'cache',
   ].map(slug => ({
     url: `${baseUrl}/counties/${slug}`,
     lastModified: new Date(),
