@@ -46,10 +46,9 @@ export default function QuoteForm() {
 
   const set = (key: string, value: string) => setForm(f => ({ ...f, [key]: value }));
 
-  console.log(`Maps Key: ${process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY
-    
-  }`)
+  // Only load Google Maps when user reaches step 3 (address entry)
   useEffect(() => {
+    if (step !== 3) return; // Don't load until step 3
     if (document.getElementById('google-places-script')) return;
     const script = document.createElement('script');
     script.id = 'google-places-script';
@@ -60,7 +59,7 @@ export default function QuoteForm() {
       if (addressInputRef.current) initAutocomplete();
     };
     document.head.appendChild(script);
-  }, []);
+  }, [step]);
 
   // Init autocomplete when step 3 is reached
   useEffect(() => {

@@ -1,5 +1,11 @@
 import Link from 'next/link';
-import QuoteForm from '@/components/QuoteForm';
+import dynamic from 'next/dynamic';
+
+// Lazy load QuoteForm (below the fold, not needed immediately)
+const QuoteForm = dynamic(() => import('@/components/QuoteForm'), {
+  loading: () => <div className="max-w-xl mx-auto bg-white/5 border border-white/10 rounded-3xl p-8 text-center text-white/40">Loading form...</div>,
+  ssr: false,
+});
 
 const cities = [
   { name: 'Ogden', slug: 'ogden', zip: '84401' },
