@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/blog',
     '/check-quote',
+    '/sizing-calculator',
   ].map(route => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
@@ -15,7 +16,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1 : 0.8,
   }));
 
-  // Blog posts
   const blogPosts = [
     'ac-replacement-cost-utah',
     'furnace-repair-vs-replace',
@@ -30,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // County pages
+  
   const counties = [
     'salt-lake',
     'davis',
