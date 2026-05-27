@@ -9,6 +9,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog',
     '/check-quote',
     '/sizing-calculator',
+    '/inspection',
+    '/maintenance',
+    '/quote',
+    '/service',
   ].map(route => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
@@ -23,6 +27,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'energy-audit-utah',
     'hvac-maintenance-checklist',
     'ogden-hvac-companies',
+    'ac-ready-utah-summer',
+    'high-energy-bills-ac-costs',
+    'new-homeowner-hvac-inspection',
   ].map(slug => ({
     url: `${baseUrl}/blog/${slug}`,
     lastModified: new Date(),
