@@ -4,7 +4,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
 
-    const { firstName, lastName, phone, email, street, city, zip, serviceType, urgency, notes } = body;
+    const { firstName, lastName, phone, email, street, city, zip, serviceType, urgency, mode, notes } = body;
 
     // Validate required fields
     if (!firstName || !lastName || !phone) {
@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
         zip: zip || '',
       },
       palmettoId: `hvacGuide_${phone}`,
-      notes: [serviceType, urgency, notes].filter(Boolean).join(' | '),
+      notes: [serviceType, urgency, notes, mode].filter(Boolean).join(' | '),
     };
 
     const palmettoRes = await fetch('https://leads.1-home.com/lead/palmetto', {

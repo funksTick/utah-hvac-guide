@@ -86,10 +86,20 @@ export default function Home() {
       <section className="max-w-6xl mx-auto px-6 py-16 border-t border-white/10">
         <h2 className="text-2xl font-bold mb-8 text-center">Services We Match You With</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {['AC Repair', 'Furnace Repair', 'New Installation', 'Maintenance', 'Heat Pump', 'Duct Cleaning', 'Energy Audit', 'Emergency Service'].map((service) => (
-            <div key={service} className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-center text-sm text-white/70 hover:border-[#e85d26]/40 hover:text-white transition-all cursor-default">
-              {service}
-            </div>
+         {[
+            { label: 'AC Repair', href: '/service' },
+            { label: 'Furnace Repair', href: '/service' },
+            { label: 'New Installation', href: '/quote' },
+            { label: 'Maintenance', href: '/maintenance' },
+            { label: 'Heat Pump', href: '/quote' },
+            { label: 'Duct Cleaning', href: '/service' },
+            { label: 'Energy Audit', href: '/inspection' },
+            { label: 'Emergency Service', href: '/service' },
+          ].map((service) => (
+            <Link key={service.label} href={service.href}
+              className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-center text-sm text-white/70 hover:border-[#e85d26]/40 hover:text-white transition-all">
+              {service.label}
+            </Link>
           ))}
         </div>
       </section>
