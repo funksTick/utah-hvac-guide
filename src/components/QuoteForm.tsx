@@ -42,6 +42,7 @@ export default function QuoteForm() {
     zip: '',
     state: 'Utah',
     notes: '',
+    smsOptIn: false,
   });
 
   const set = (key: string, value: string) => setForm(f => ({ ...f, [key]: value }));
@@ -121,7 +122,7 @@ export default function QuoteForm() {
       if (!res.ok) throw new Error('Submission failed');
       setSuccess(true);
     } catch {
-      setError('Something went wrong. Please call us directly at (801) 555-0100.');
+      setError('Something went wrong. Please call us directly at (385) 486-0072.');
     } finally {
       setLoading(false);
     }
@@ -232,11 +233,11 @@ export default function QuoteForm() {
                 value={form.phone}
                 onChange={e => set('phone', e.target.value)}
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#e85d26]/50 placeholder-white/20"
-                placeholder="(801) 555-0100"
+                placeholder="(385) 486-0072"
                 type="tel"
               />
             </div>
-            <div className="mb-6">
+            <div className="mb-4">
               <label className="block text-xs text-white/40 mb-1.5">Email</label>
               <input
                 value={form.email}
@@ -245,6 +246,21 @@ export default function QuoteForm() {
                 placeholder="john@email.com"
                 type="email"
               />
+            </div>
+            <div className="mb-6">
+              <label className="flex items-start gap-3 cursor-pointer group">
+                <input
+                  type="checkbox"
+                  checked={form.smsOptIn}
+                  onChange={e => setForm(f => ({ ...f, smsOptIn: e.target.checked }))}
+                  className="mt-0.5 w-5 h-5 rounded border-white/20 bg-white/5 text-[#e85d26] focus:ring-[#e85d26]/50 focus:ring-offset-0"
+                />
+                <span className="text-xs text-white/50 group-hover:text-white/70 transition-colors">
+                  I consent to receive text messages from Utah HVAC Guide and partner contractors about my service request. Message and data rates may apply. Reply STOP to opt out. See our{' '}
+                  <a href="/privacy-policy" target="_blank" className="text-[#e85d26] hover:underline">Privacy Policy</a> and{' '}
+                  <a href="/terms" target="_blank" className="text-[#e85d26] hover:underline">Terms</a>.
+                </span>
+              </label>
             </div>
             <div className="flex gap-3">
               <button onClick={() => setStep(1)} className="flex-1 border border-white/10 text-white/60 hover:text-white font-medium py-4 rounded-2xl transition-colors text-sm">
@@ -320,7 +336,10 @@ export default function QuoteForm() {
                 {loading ? 'Submitting...' : 'Get My Free Quote →'}
               </button>
             </div>
-            <p className="text-center text-white/20 text-xs mt-4">No spam. A contractor will call within 30 minutes.</p>
+            <p className="text-center text-white/20 text-xs mt-4">
+              No spam. A contractor will call within 30 minutes.<br />
+              By submitting, you agree to our <a href="/terms" target="_blank" className="text-white/40 hover:text-white/60 underline">Terms</a> and <a href="/privacy-policy" target="_blank" className="text-white/40 hover:text-white/60 underline">Privacy Policy</a>.
+            </p>
           </div>
         )}
       </div>
