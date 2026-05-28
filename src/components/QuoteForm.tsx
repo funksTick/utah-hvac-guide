@@ -256,7 +256,7 @@ export default function QuoteForm() {
                   className="mt-0.5 w-5 h-5 rounded border-white/20 bg-white/5 text-[#e85d26] focus:ring-[#e85d26]/50 focus:ring-offset-0"
                 />
                 <span className="text-xs text-white/50 group-hover:text-white/70 transition-colors">
-                  I consent to receive text messages from Utah HVAC Guide and partner contractors about my service request. Message and data rates may apply. Reply STOP to opt out. See our{' '}
+                  I consent to receive text messages from Utah HVAC Guide and partner contractors about my service request. <span className="text-[#e85d26] font-medium">Required.</span> Message and data rates may apply. Reply STOP to opt out. See our{' '}
                   <a href="/privacy-policy" target="_blank" className="text-[#e85d26] hover:underline">Privacy Policy</a> and{' '}
                   <a href="/terms" target="_blank" className="text-[#e85d26] hover:underline">Terms</a>.
                 </span>
@@ -268,7 +268,7 @@ export default function QuoteForm() {
               </button>
               <button
                 onClick={() => setStep(3)}
-                disabled={!form.firstName || !form.lastName || !form.phone}
+                disabled={!form.firstName || !form.lastName || !form.phone || !form.smsOptIn}
                 className="flex-[2] bg-[#e85d26] disabled:opacity-30 hover:bg-[#d04e1a] text-white font-bold py-4 rounded-2xl transition-colors"
               >
                 Continue →
